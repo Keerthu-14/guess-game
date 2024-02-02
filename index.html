@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess-Game</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Afacad&display=swap');
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Afacad', sans-serif;
+        color: #fff;
+    }
+    body{
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: rgb(17,14,246);
+        background: linear-gradient(125deg, rgba(17,14,246,1) 33%, rgba(0,185,255,1) 78%);
+        background-size: 400% 400%;
+        animation: anime 5s linear infinite;
+        transition-property: all;
+       
+    }
+    @keyframes anime {
+        0%{
+        background-position: 0%;
+    }
+    50%{
+        background-position: 100%;
+    }
+    100%{
+        background-position: 0%;
+    }
+    }
+    .container{
+        width: 350px;
+        min-height:200px ;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        border-top: 1px solid rgba(253, 253, 253, 0.747);
+        border-left: 1px solid rgba(253, 253, 253, 0.747);
+        border-radius: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: transparent;
+        backdrop-filter: blur(20px);
+    }
+    h1{
+        color: #fff;
+        margin-top: 10px;
+        bottom: 20px;
+        margin-bottom: 25px;
+        
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+   
+    input{
+        width: 220px;
+        height: 40px;
+        top: 0;
+        left: 0;
+        border: none;
+        outline: none;
+        margin-bottom: 20px;
+        padding: 10px;
+        z-index: 1;
+        background: none;
+        border: 1px solid #fff;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 19px;
+        font-weight: 500;
+    }
+    input::placeholder{
+        color: white;
+        font-size: 16px;
+        opacity: 1;
+    }
+    
+    button{
+        width: 100px;
+        height: 40px;
+        border: 1px solid #fff;
+        outline: none;
+        border-radius: 16px;
+        background:transparent;
+        color: #fff;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        font-size: 18px;
+    }
+    button:hover{
+        background-color: #a3cef1;
+        color: #013a63;
+        font-weight: 600;
+    }
+    p{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    .header{
+        font-size: 100px;
+    }
+    h2{
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+ 
+
+</style>
+</head>
+<body>
+<h1 class="header">Hello There...</h1>
+<h2>Welcome to KG's Game</h2>
+
+<h2> Life's a guess, just like this number! Dive in and embrace the mystery.</h2>
+
+<div class="container">
+<h1>Guess the Number</h1>
+<div class="input">
+    <input id="guessnumber" placeholder="Guess Your Number" >
+</div>
+<button onclick="check()">Check</button>
+<p id="result">You are Wrong / Right</p>
+<p id="score">Score : 10</p>
+</div>
+
+<script>
+    var guessnumber = document.getElementById("guessnumber")
+    var result = document.getElementById("result")
+    var randomNumber = Math.floor(Math.random()*10)+1
+    var score = document.getElementById("score")
+    var totalscore = 10
+
+    function check()
+    {
+        var enteredNumber = guessnumber.value
+        if (randomNumber == enteredNumber)
+        {
+            console.log("Right")
+            result.textContent = "You are Right !"
+            alert("YOU WON...!")
+        }
+        else{
+            result.textContent = " You are Wrong..."
+            totalscore = totalscore-1
+            score.textContent = "Score: " + totalscore
+        }
+    }
+    
+
+</script>
+</body>
+</html>
